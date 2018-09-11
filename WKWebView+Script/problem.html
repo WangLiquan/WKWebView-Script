@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,user-scalable=no"/>
+            </head>
+    <body>
+        名字：<span id="name"></span>
+        <br/>
+        <button style = "background-color: #ff0000;color: #FFFFFF;padding: 15px 32px;" onclick="redResponse()">红色</button>
+        <button style = "background-color: #0041ff;color: #FFFFFF;padding: 15px 32px;" onclick="blueResponse()">蓝色</button>
+        <button style = "background-color: #00d819;color: #FFFFFF;padding: 15px 32px;" onclick="greenResponse()">绿色</button>
+        <button style = "background-color: #ffe064;color: #FFFFFF;padding: 15px 32px;" onclick="yellowResponse()">黄色</button>
+        <!--   添加这个script在项目头,这样swift才能打印console.log的内容         -->
+        <script>
+            var console = {};
+            console.log = function(message){window.webkit.messageHandlers['logger'].postMessage(message)
+            };
+        </script>
+        <script type="text/javascript">
+            ///被swift调用的方法
+            function sayHello(text) {
+                console.log(text)
+            }
+        ///调用swift方法的方式 window.webkit.messageHandlers.(swift注册的交互名).postMessage(传给swift的参数)
+        function redResponse() {
+            ///没有参数传可以传任意值,让swift端不接收
+            window.webkit.messageHandlers.redResponse.postMessage("")
+        }
+        function blueResponse() {
+            window.webkit.messageHandlers.blueResponse.postMessage("蓝色")
+        }
+        function greenResponse() {
+            window.webkit.messageHandlers.greenResponse.postMessage(1)
+        }
+        function yellowResponse() {
+            window.webkit.messageHandlers.yellowResponse.postMessage(["1","2","3"])
+        }
+        </script>
+    </body>
+</html>
