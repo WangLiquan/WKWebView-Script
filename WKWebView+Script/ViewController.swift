@@ -52,12 +52,15 @@ class ViewController: UIViewController {
 
     func redRequest(){
         print("Swift log:没有从JS接收参数")
+        EWToast.showBottomWithText(text: "Swift log:没有从JS接收参数")
     }
     func blueRequest(string: String){
         print("Swift log:\(string),从JS接收字符串")
+        EWToast.showBottomWithText(text: "Swift log:\(string),从JS接收字符串")
     }
     func greenRequest(int: Int){
         print("Swift log:\(int),从JS接收Int")
+        EWToast.showBottomWithText(text: "Swift log:\(int),从JS接收Int")
     }
     func yellowRequest(array: [String]){
         for str in array{
@@ -82,6 +85,7 @@ extension ViewController: WKScriptMessageHandler{
         let body = message.body
         if message.name == "logger" {
             print("JS log:\(body)")
+            EWToast.showBottomWithText(text: "JS log:\(body)")
             return
         }
         ///message.name是约定好的方法名,message.body是携带的参数

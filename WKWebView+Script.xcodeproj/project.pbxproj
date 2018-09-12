@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		79C625A32148AE50005F140E /* EWToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C625A22148AE50005F140E /* EWToast.swift */; };
 		79D5C367214648FB00DF5F2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D5C366214648FB00DF5F2D /* AppDelegate.swift */; };
 		79D5C369214648FB00DF5F2D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D5C368214648FB00DF5F2D /* ViewController.swift */; };
 		79D5C36C214648FB00DF5F2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79D5C36A214648FB00DF5F2D /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		79C625A22148AE50005F140E /* EWToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EWToast.swift; sourceTree = "<group>"; };
 		79D5C363214648FB00DF5F2D /* WKWebView+Script.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WKWebView+Script.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		79D5C366214648FB00DF5F2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79D5C368214648FB00DF5F2D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				79D5C3942146491200DF5F2D /* WKScriptMessageDelegate.swift */,
+				79C625A22148AE50005F140E /* EWToast.swift */,
 				79D5C366214648FB00DF5F2D /* AppDelegate.swift */,
 				79D5C368214648FB00DF5F2D /* ViewController.swift */,
 				79D5C36A214648FB00DF5F2D /* Main.storyboard */,
@@ -266,6 +269,7 @@
 				79D5C369214648FB00DF5F2D /* ViewController.swift in Sources */,
 				79D5C367214648FB00DF5F2D /* AppDelegate.swift in Sources */,
 				79D5C3952146491200DF5F2D /* WKScriptMessageDelegate.swift in Sources */,
+				79C625A32148AE50005F140E /* EWToast.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

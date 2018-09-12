@@ -8,3 +8,5 @@
 包括Swift调用JS方法以及JS调用Swift原生方法.并传递各种类型参数
 
 实现在控制台打印JS中的Console.log内容.
+
+![效果图预览](https://github.com/WangLiquan/WKWebView-Script/raw/master/images/demonstration.gif)
