@@ -14,4 +14,3 @@ class WeakScriptMessageDelegate: NSObject, WKScriptMessageHandler {
         print("WeakScriptMessageDelegate is deinit")
     }
 }
-

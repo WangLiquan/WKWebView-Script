@@ -38,46 +38,51 @@ class ViewController: UIViewController {
         webView.navigationDelegate = self
         return webView
     }()
-    ///加载本地html文件
-    let HTML = try! String(contentsOfFile: Bundle.main.path(forResource: "problem", ofType: "html")!,
-                           encoding: String.Encoding.utf8)
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let HTML: String
+        do {
+            ///加载本地html文件
+            HTML = try String(contentsOfFile: Bundle.main.path(forResource: "problem", ofType: "html")!,
+                       encoding: String.Encoding.utf8)
+        } catch let error {
+            print(error)
+            HTML = ""
+        }
         view.addSubview(webView)
         webView.loadHTMLString(HTML, baseURL: nil)
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-
-    func redRequest(){
+    func redRequest() {
         print("Swift log:没有从JS接收参数")
         EWToast.showBottomWithText(text: "Swift log:没有从JS接收参数")
     }
-    func blueRequest(string: String){
+    func blueRequest(string: String) {
         print("Swift log:\(string),从JS接收字符串")
         EWToast.showBottomWithText(text: "Swift log:\(string),从JS接收字符串")
     }
-    func greenRequest(int: Int){
+    func greenRequest(int: Int) {
         print("Swift log:\(int),从JS接收Int")
         EWToast.showBottomWithText(text: "Swift log:\(int),从JS接收Int")
     }
-    func yellowRequest(array: [String]){
-        for str in array{
+    func yellowRequest(array: [String]) {
+        for str in array {
             print("Swift log:\(str),从JS接收Array")
         }
     }
 
 }
 
-extension ViewController: WKNavigationDelegate{
+extension ViewController: WKNavigationDelegate {
     ///在网页加载完成时调用js方法
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         webView.evaluateJavaScript("sayHello('js你好,我是从Swift传来的')", completionHandler: nil)
     }
 }
 
-extension ViewController: WKScriptMessageHandler{
+extension ViewController: WKScriptMessageHandler {
     ///接收js调用方法
     func userContentController(_ userContentController: WKUserContentController,
                                didReceive message: WKScriptMessage) {
@@ -94,11 +99,11 @@ extension ViewController: WKScriptMessageHandler{
             ///不接收参数时直接不处理message.body即可,不用管Html传了什么
             redRequest()
         case "blueResponse":
-            blueRequest(string: message.body as! String)
+            blueRequest(string: message.body as? String ?? "")
         case "greenResponse":
-            greenRequest(int: message.body as! Int)
+            greenRequest(int: message.body as? Int ?? 0)
         case "yellowResponse":
-            yellowRequest(array: message.body as! [String])
+            yellowRequest(array: message.body as? [String] ?? [])
         default:
             break
         }
